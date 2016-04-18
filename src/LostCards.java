@@ -57,5 +57,77 @@
  *
  */
 public class LostCards {
+    public static void main(String[] args) {
 
-}
+
+        for (int suit = 1; suit <= 4; suit++) {
+
+        for (int number = 1; number <= 13; number++) {
+
+
+                System.out.println(suit);
+
+                if (number == 13 && suit == 4 || number == 3 && suit != 2) {
+                    System.out.println("Card Missing");
+                }
+
+                if ((number == 11 || number == 12 || number == 13 || number == 1) && (suit == 1 || suit == 3)) {
+                    System.out.println("Water Damaged");
+                }
+
+                if ((number % 3 == 0) && (suit == 2 || suit == 3)) {
+                    System.out.println("Torn");
+
+                }
+
+                if ((number == 5) &&  (suit == 1)) {
+                    System.out.println("Face Down");
+                }
+
+                    if ((number == 8) &&  (suit == 2)) {
+                        System.out.println("Face Down");
+                    }
+
+                        if ((number == 6) &&  (suit == 3)) {
+                            System.out.println("Face Down");
+                        }
+
+                if ((number == 6) &&  (suit == 4)) {
+                    System.out.println("Face Down");
+                }
+
+                if (number == 1){
+                    System.out.println("A");
+                }
+
+            if (number == 10) {
+                System.out.println("T");
+            }
+
+                if (number == 11) {
+                    System.out.println("J");
+                }
+
+            if (number == 12) {
+                System.out.println("Q");
+            }
+
+            if (number == 13) {
+                System.out.println("K");
+            }
+
+            if ((number >= 2) && (number <= 9)) {
+                System.out.println(number);
+            }
+
+
+
+
+                }
+            }
+
+
+        }
+    }
+
+
