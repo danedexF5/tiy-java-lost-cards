@@ -57,46 +57,72 @@
  *
  */
 public class LostCards {
+    public static String cardToString(int s, int n, boolean t, boolean w, boolean fD){
+        String[] symbols = {"♣", "♢", "♡", "♠"};
+        String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "t", "J", "Q", "K"};
+        String result = "";
+
+        if (fD) {
+            result = "**";
+        }
+        else{
+            result = (ranks[n - 1] + symbols[s - 1]);
+        }
+        if(w){
+            result = "~" + result + "~";
+        }
+        if(t){
+            result = "-" + result + "-";
+        }
+        if(!t && !w){
+            result = "[" + result + "]";
+        }
+
+        return result;
+
+    }
+
     public static void main(String[] args) {
 
 
         for (int suit = 1; suit <= 4; suit++) {
 
         for (int number = 1; number <= 13; number++) {
+            boolean torn = false;
+            boolean wet = false;
+            boolean faceDown = false;
 
-
-                System.out.println(suit);
 
                 if (number == 13 && suit == 4 || number == 3 && suit != 2) {
                     System.out.println("Card Missing");
                 }
 
                 if ((number == 11 || number == 12 || number == 13 || number == 1) && (suit == 1 || suit == 3)) {
-                    System.out.println("Water Damaged");
+                    wet = true;
                 }
 
                 if ((number % 3 == 0) && (suit == 2 || suit == 3)) {
-                    System.out.println("Torn");
+                    torn = true;
 
                 }
 
                 if ((number == 5) &&  (suit == 1)) {
-                    System.out.println("Face Down");
+                    faceDown = true;
                 }
 
                     if ((number == 8) &&  (suit == 2)) {
-                        System.out.println("Face Down");
+                        faceDown = true;
                     }
 
                         if ((number == 6) &&  (suit == 3)) {
-                            System.out.println("Face Down");
+                            faceDown = true;
                         }
 
                 if ((number == 6) &&  (suit == 4)) {
-                    System.out.println("Face Down");
+                    faceDown = true;
                 }
 
-                if (number == 1){
+               /* if (number == 1){
                     System.out.println("A");
                 }
 
@@ -118,9 +144,9 @@ public class LostCards {
 
             if ((number >= 2) && (number <= 9)) {
                 System.out.println(number);
-            }
+            }*/
 
-
+            System.out.println(cardToString(suit, number, torn, wet, faceDown));
 
 
                 }
